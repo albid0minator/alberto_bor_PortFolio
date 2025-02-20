@@ -14,24 +14,99 @@ html, body {
     box-sizing: border-box;
 }
 
-/* Hero section */
-.hero-section {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1920/1080');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-}
-
 /* Navbar styles */
 .navbar {
     transition: all 0.3s ease;
+    background-color: transparent !important;
+    padding: 1rem 0;
+}
+
+.navbar-brand, .nav-link {
+    color: white !important;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+.navbar-brand:hover, .nav-link:hover {
+    color: rgba(255, 255, 255, 0.8) !important;
 }
 
 .navbar.scrolled {
     background-color: #fff !important;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar.scrolled .navbar-brand,
+.navbar.scrolled .nav-link {
+    color: #000 !important;
+}
+
+.navbar.scrolled .navbar-brand:hover,
+.navbar.scrolled .nav-link:hover {
+    color: #007bff !important;
+}
+
+/* Hamburger menu styling */
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.8);
+    padding: 0.5rem;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+.navbar.scrolled .navbar-toggler {
+    border-color: rgba(0, 0, 0, 0.5);
+}
+
+.navbar.scrolled .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Hero section */
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('/api/placeholder/1920/1080');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.hero-description {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.hero-cta {
+    margin-top: 2rem;
+}
+
+/* Button styles */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 0.8rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.btn-outline-light {
+    padding: 0.8rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+    transform: translateY(-2px);
 }
 
 /* Project card styles */
@@ -107,49 +182,4 @@ html, body {
     font-size: 0.9rem;
     color: #636e72;
     margin-top: 0.5rem;
-}
-
-
-
-.hero-section {
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('/api/placeholder/1920/1080');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.hero-description {
-    max-width: 600px;
-    margin: 0 auto;
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-.hero-cta {
-    margin-top: 2rem;
-}
-
-.btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-    padding: 0.8rem 1.5rem;
-    transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
-    transform: translateY(-2px);
-}
-
-.btn-outline-light {
-    padding: 0.8rem 1.5rem;
-    transition: all 0.3s ease;
-}
-
-.btn-outline-light:hover {
-    transform: translateY(-2px);
 }
