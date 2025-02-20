@@ -1,4 +1,33 @@
-// Smooth scrolling per i link di navigazione
+// Navbar scroll effect
+window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+// Form validation
+(function () {
+    'use strict'
+    const forms = document.querySelectorAll('.needs-validation');
+    Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            } else {
+                event.preventDefault();
+                alert('Grazie per il tuo messaggio! Ti risponderò presto.');
+                form.reset();
+            }
+            form.classList.add('was-validated');
+        }, false);
+    });
+})();
+
+// Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -6,24 +35,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             behavior: 'smooth'
         });
     });
-});
-
-// Animazione navbar allo scroll
-window.addEventListener('scroll', function() {
-    const nav = document.querySelector('nav');
-    if (window.scrollY > 50) {
-        nav.style.background = 'rgba(255, 255, 255, 0.95)';
-        nav.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
-    } else {
-        nav.style.background = 'rgba(255, 255, 255, 0.95)';
-        nav.style.boxShadow = 'none';
-    }
-});
-
-// Gestione form di contatto
-document.querySelector('.contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    // Qui puoi aggiungere la logica per inviare il form
-    alert('Grazie per il tuo messaggio! Ti risponderò presto.');
-    this.reset();
 });
