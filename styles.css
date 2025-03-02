@@ -183,3 +183,306 @@ html, body {
     color: #636e72;
     margin-top: 0.5rem;
 }
+
+/* Stili per la sezione portfolio */
+.portfolio-section {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.section-title {
+    position: relative;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.section-title h2 {
+    font-weight: 700;
+    color: #1d2951;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.section-title h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #2d46b9;
+    margin: 15px auto;
+}
+
+.section-title p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #666;
+}
+
+.project-category {
+    margin-bottom: 40px;
+}
+
+.category-title {
+    position: relative;
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1d2951;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.category-title::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 3px;
+    background-color: #4e63da;
+    bottom: 0;
+    left: 0;
+}
+
+.slider-wrapper {
+    position: relative;
+    padding: 0 50px;
+    overflow: hidden;
+}
+
+.project-slider {
+    position: relative;
+    padding: 20px 0;
+}
+
+.slider-container {
+    overflow: hidden;
+    position: relative;
+    margin: 0 10px;
+    /* Aggiungiamo padding a destra per mostrare parzialmente la card successiva */
+    padding-right: 60px;
+}
+
+/* Rimuoviamo l'effetto sfumato sul lato destro */
+.slider-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(90deg, #f8f9fa 0%, rgba(248, 249, 250, 0) 100%);
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* Rimuoviamo completamente l'effetto sfumato sul lato destro */
+.slider-container::after {
+    display: none;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.project-card-container {
+    min-width: 300px;
+    padding: 15px;
+    border-radius: 20px; /* Bordi smussati */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Stacco con ombra */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.project-card {
+    border-radius: 20px; /* Smussati anche la card interna */
+    overflow: hidden; /* Per non far uscire l'immagine dai bordi */
+}
+
+.project-image {
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Adatta correttamente l'immagine senza distorsione */
+    transition: transform 0.5s;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.1);
+}
+
+.project-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    justify-content: space-between;
+    align-items: center; /* Allinea gli elementi al centro */
+    text-align: center; /* Allinea il testo e i badge al centro */
+}
+
+.project-button {
+    text-align: center;
+    margin-top: 15px;
+    width: 100%; /* Fa allargare il bottone fino ai bordi della card */
+}
+
+.project-button a {
+    display: block; /* Permette al bottone di occupare tutta la larghezza */
+    padding: 10px 20px;
+    background-color: #4e63da;
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.project-button a:hover {
+    background-color: #2d46b9;
+}
+
+.project-content h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #1d2951;
+}
+
+.project-content p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.project-badges {
+    display: flex;
+    justify-content: center; /* Centra le badge */
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 15px;
+}
+
+.project-badges .badge {
+    background-color: #4e63da;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: normal;
+}
+
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: #2d46b9;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s;
+}
+
+.slider-nav:hover {
+    background-color: #1d2951;
+}
+
+.slider-prev {
+    left: 0;
+}
+
+.slider-next {
+    right: 0;
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.slider-dot.active {
+    background-color: #2d46b9;
+}
+
+/* Rimuoviamo gli stili che causavano l'effetto sbiadito sulle ultime card */
+/* .project-card-container:nth-last-child(-n+2):not(:last-child) {
+    opacity: 1;
+}
+
+.project-card-container:last-child {
+    opacity: 0.7;
+} */
+
+/* Responsive per la sezione progetti */
+@media (max-width: 768px) {
+    .slider-wrapper {
+        padding: 0 40px;
+    }
+
+    .section-title h2 {
+        font-size: 2rem;
+    }
+
+    .project-card-container {
+        min-width: 280px;
+    }
+
+    .slider-container {
+        padding-right: 40px; /* Riduciamo il padding a destra per schermi più piccoli */
+    }
+
+    .slider-container::before {
+        width: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .slider-wrapper {
+        padding: 0 30px;
+    }
+
+    .slider-nav {
+        width: 30px;
+        height: 30px;
+    }
+
+    .project-card-container {
+        min-width: 250px;
+    }
+
+    .project-card {
+        height: 380px;
+    }
+
+    .slider-container {
+        padding-right: 30px; /* Riduciamo ulteriormente il padding a destra */
+    }
+
+    .slider-container::before {
+        width: 10px;
+    }
+}

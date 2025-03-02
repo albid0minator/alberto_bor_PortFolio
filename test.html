@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Mio Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2d46b9;
+            --secondary-color: #1d2951;
+            --accent-color: #4e63da;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+        }
+
+        .portfolio-section {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .section-title h2 {
+            font-weight: 700;
+            color: var(--secondary-color);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 15px auto;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #666;
+        }
+
+        .project-category {
+            margin-bottom: 40px;
+        }
+
+        .category-title {
+            position: relative;
+            display: inline-block;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+
+        .category-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--accent-color);
+            bottom: 0;
+            left: 0;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            padding: 0 50px;
+            overflow: hidden; /* Contiene tutto, incluso l'hover */
+        }
+
+        .project-slider {
+            position: relative;
+            padding: 20px 0; /* Spazio verticale per l'hover */
+        }
+
+        .slider-container {
+            overflow: hidden;
+            position: relative;
+            margin: 0 10px; /* Aggiunge spazio laterale */
+        }
+
+        /* Maschere di sfumatura molto leggere per i bordi laterali */
+        .slider-container::before,
+        .slider-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 20px; /* Ridotta la larghezza della sfumatura */
+            height: 100%;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .slider-container::before {
+            left: 0;
+            background: linear-gradient(90deg, var(--light-bg) 0%, rgba(248, 249, 250, 0) 100%);
+        }
+
+        .slider-container::after {
+            right: 0;
+            background: linear-gradient(270deg, var(--light-bg) 0%, rgba(248, 249, 250, 0) 100%);
+        }
+
+        .slider-track {
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+            gap: 20px;
+            padding: 10px 0; /* Padding per l'effetto hover */
+        }
+
+        .project-card-container {
+            min-width: 300px;
+            padding: 15px; /* Spazio per l'hover */
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-content h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .project-content p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        .project-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 15px;
+        }
+
+        .badge {
+            background-color: var(--accent-color);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: normal;
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: background-color 0.3s;
+        }
+
+        .slider-nav:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .slider-prev {
+            left: 0;
+        }
+
+        .slider-next {
+            right: 0;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .slider-dot.active {
+            background-color: var(--primary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .slider-wrapper {
+                padding: 0 40px;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .project-card-container {
+                min-width: 280px;
+            }
+
+            .slider-container::before,
+            .slider-container::after {
+                width: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .slider-wrapper {
+                padding: 0 30px;
+            }
+
+            .slider-nav {
+                width: 30px;
+                height: 30px;
+            }
+
+            .project-card-container {
+                min-width: 250px;
+            }
+
+            .project-card {
+                height: 380px;
+            }
+
+            .slider-container::before,
+            .slider-container::after {
+                width: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section id="portfolio" class="portfolio-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>I Miei Progetti</h2>
+            <p>Una selezione dei miei lavori divisi tra progetti accademici realizzati durante il percorso universitario e progetti personali sviluppati autonomamente.</p>
+        </div>
+
+        <!-- Progetti Universitari -->
+        <div class="project-category">
+            <h3 class="category-title">Progetti Universitari</h3>
+
+            <div class="slider-wrapper">
+                <div class="project-slider" id="university-slider">
+                    <div class="slider-container">
+                        <div class="slider-track">
+
+                            <!-- Progetto Universitario 1 -->
+                            <div class="project-card-container">
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <img src="/api/placeholder/400/320" alt="Progetto di algoritmi">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>Sistema di Gestione Database</h3>
+                                        <p>Implementazione di un DBMS relazionale in Java con supporto per query SQL e ottimizzazione delle prestazioni. Progetto del corso di Basi di Dati.</p>
+                                        <div class="project-badges">
+                                            <span class="badge">Java</span>
+                                            <span class="badge">SQL</span>
+                                            <span class="badge">JDBC</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Progetto Universitario 2 -->
+                            <div class="project-card-container">
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <img src="/api/placeholder/400/320" alt="Progetto web">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>Applicazione Web per Prenotazioni</h3>
+                                        <p>Piattaforma web per la gestione delle prenotazioni di aule e laboratori universitari con autenticazione e notifiche in tempo reale.</p>
+                                        <div class="project-badges">
+                                            <span class="badge">HTML/CSS</span>
+                                            <span class="badge">JavaScript</span>
+                                            <span class="badge">PHP</span>
+                                            <span class="badge">MySQL</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Progetto Universitario 3 -->
+                            <div class="project-card-container">
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <img src="/api/placeholder/400/320" alt="Progetto IA">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>Algoritmo di Classificazione</h3>
+                                        <p>Implementazione di un algoritmo di machine learning per la classificazione di immagini utilizzando reti neurali convoluzionali.</p>
+                                        <div class="project-badges">
+                                            <span class="badge">Python</span>
+                                            <span class="badge">TensorFlow</span>
+                                            <span class="badge">Computer Vision</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Progetto Universitario 4 -->
+                            <div class="project-card-container">
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <img src="/api/placeholder/400/320" alt="Progetto reti">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>Simulazione di Rete</h3>
+                                        <p>Simulazione di una rete di computer con implementazione di protocolli di routing e analisi delle prestazioni in diverse condizioni di carico.</p>
+                                        <div class="project-badges">
+                                            <span class="badge">C++</span>
+                                            <span class="badge">Protocolli di Rete</span>
+                                            <span class="badge">Simulazione</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Progetto Universitario 5 -->
+                            <div class="project-card-container">
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <img src="/api/placeholder/400/320" alt="Progetto mobile">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>App Mobile per Studenti</h3>
+                                        <p>Applicazione mobile per la gestione del calendario accademico, esami e materiale didattico con sincronizzazione cloud.</p>
+                                        <div class="project-badges">
+                                            <span class="badge">Android</span>
+                                            <span class="badge">Kotlin</span>
+                                            <span class="badge">Firebase</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Indicatori -->
+                    <div class="slider-dots" id="uni-dots"></div>
+                </div>
+
+                <!-- Controlli slider -->
+                <div class="slider-nav slider-prev" id="uni-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="slider-nav slider-next" id="uni-next">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progetti Personali -->
+        <div class="project-category">
+            <h3 class="category-title">Progetti Personali</h3>
+
+            <div class="slider-wrapper">
+                <div class="project-slider" id="personal-slider">
+                    <div class="slider-container">
+                        <div class="slider-track">
+
+                            <!-- Progetto Personale 1 -->
+                            <div class="project-card-container">
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <img src="/api/placeholder/400/320" alt="Videogioco">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>Videogioco 2D Platform</h3>
+                                        <p>Sviluppo di un videogioco platform in stile retrò con fisica realistica, sistema di livelli e modalità multiplayer locale.</p>
+                                        <div class="project-badges">
+                                            <span class="badge">Unity</span>
+                                            <span class="badge">C#</span>
+                                            <span class="badge">Game Design</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Progetto Personale 2 -->
+                            <div class="project-card-container">
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <img src="/api/placeholder/400/320" alt="Bot Telegram">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>Bot Telegram per Appunti</h3>
+                                        <p>Bot Telegram che aiuta a organizzare e condividere appunti universitari, con funzionalità di ricerca e categorizzazione automatica.</p>
+                                        <div class="project-badges">
+                                            <span class="badge">Python</span>
+                                            <span class="badge">Telegram API</span>
+                                            <span class="badge">NLP</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Progetto Personale 3 -->
+                            <div class="project-card-container">
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <img src="/api/placeholder/400/320" alt="Dashboard">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>Dashboard Personale</h3>
+                                        <p>Dashboard interattiva per monitorare abitudini quotidiane, obiettivi personali e attività, con visualizzazioni grafiche e statistiche.</p>
+                                        <div class="project-badges">
+                                            <span class="badge">React</span>
+                                            <span class="badge">Node.js</span>
+                                            <span class="badge">Chart.js</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Progetto Personale 4 -->
+                            <div class="project-card-container">
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <img src="/api/placeholder/400/320" alt="Estensione">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>Estensione per Browser</h3>
+                                        <p>Estensione per Chrome che blocca le distrazioni durante le sessioni di studio, con timer personalizzabile e statistiche di produttività.</p>
+                                        <div class="project-badges">
+                                            <span class="badge">JavaScript</span>
+                                            <span class="badge">Chrome API</span>
+                                            <span class="badge">CSS</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Progetto Personale 5 -->
+                            <div class="project-card-container">
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <img src="/api/placeholder/400/320" alt="Blog">
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>Blog Tecnico</h3>
+                                        <p>Blog personale dedicato alla programmazione e all'informatica, con tutorial, guide e riflessioni sulle nuove tecnologie.</p>
+                                        <div class="project-badges">
+                                            <span class="badge">WordPress</span>
+                                            <span class="badge">PHP</span>
+                                            <span class="badge">SEO</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Indicatori -->
+                    <div class="slider-dots" id="personal-dots"></div>
+                </div>
+
+                <!-- Controlli slider -->
+                <div class="slider-nav slider-prev" id="personal-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="slider-nav slider-next" id="personal-next">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Configurazione degli slider
+        function setupSlider(sliderId, prevId, nextId, dotsId) {
+            const slider = document.getElementById(sliderId);
+            const track = slider.querySelector('.slider-track');
+            const slides = track.querySelectorAll('.project-card-container');
+            const prevBtn = document.getElementById(prevId);
+            const nextBtn = document.getElementById(nextId);
+            const dotsContainer = document.getElementById(dotsId);
+
+            // Variabili di stato
+            let currentIndex = 0;
+            let slidesToShow = 3;
+            let slideWidth = 0;
+
+            // Creazione dei pallini indicatori
+            function createDots() {
+                dotsContainer.innerHTML = '';
+                const totalGroups = Math.ceil(slides.length / slidesToShow);
+
+                for (let i = 0; i < totalGroups; i++) {
+                    const dot = document.createElement('div');
+                    dot.classList.add('slider-dot');
+                    if (i === 0) dot.classList.add('active');
+
+                    dot.addEventListener('click', () => {
+                        goToSlide(i * slidesToShow);
+                    });
+
+                    dotsContainer.appendChild(dot);
+                }
+            }
+
+            // Aggiornamento dei pallini attivi
+            function updateDots() {
+                const dots = dotsContainer.querySelectorAll('.slider-dot');
+                const activeIndex = Math.floor(currentIndex / slidesToShow);
+
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === activeIndex);
+                });
+            }
+
+            // Funzione per calcolare la larghezza dello slide e slides visibili
+            function calcSlideWidth() {
+                const sliderWidth = slider.querySelector('.slider-container').offsetWidth;
+
+                // Responsive
+                if (window.innerWidth < 768) {
+                    slidesToShow = 1;
+                } else if (window.innerWidth < 992) {
+                    slidesToShow = 2;
+                } else {
+                    slidesToShow = 3;
+                }
+
+                slideWidth = sliderWidth / slidesToShow;
+
+                // Imposta larghezza delle slide
+                slides.forEach(slide => {
+                    slide.style.minWidth = `${slideWidth}px`;
+                });
+
+                // Ricalcola e crea dots
+                createDots();
+
+                // Aggiorna posizione
+                goToSlide(currentIndex);
+            }
+
+            // Funzione per andare ad uno slide specifico
+            function goToSlide(index) {
+                // Limitiamo l'indice
+                if (index < 0) index = 0;
+                if (index > slides.length - slidesToShow) index = slides.length - slidesToShow;
+
+                currentIndex = index;
+                track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+                updateDots();
+            }
+
+            // Eventi per i bottoni
+            prevBtn.addEventListener('click', () => {
+                goToSlide(currentIndex - slidesToShow);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                goToSlide(currentIndex + slidesToShow);
+            });
+
+            // Inizializzazione
+            calcSlideWidth();
+
+            // Gestione resize
+            window.addEventListener('resize', calcSlideWidth);
+
+            return { goToSlide, calcSlideWidth };
+        }
+
+        // Inizializza gli slider
+        const uniSlider = setupSlider('university-slider', 'uni-prev', 'uni-next', 'uni-dots');
+        const personalSlider = setupSlider('personal-slider', 'personal-prev', 'personal-next', 'personal-dots');
+    });
+</script>
+
+</body>
+</html>

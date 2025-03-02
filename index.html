@@ -9,6 +9,8 @@
     <!-- Bootstrap Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
     <!-- Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -56,127 +58,258 @@
             </div>
         </div>
     </section>
-
-    <!-- Projects Section -->
-    <section id="progetti" class="py-5" style="padding-top: 100px !important;">
+    <!-- progetti Section -->
+    <!-- Progetti Section -->
+    <section id="progetti" class="portfolio-section">
         <div class="container">
+            <div class="section-title">
+                <h2>I Miei Progetti</h2>
+                <p>Una selezione dei miei lavori divisi tra progetti accademici realizzati durante il percorso universitario e progetti personali sviluppati autonomamente.</p>
+            </div>
+
             <!-- Progetti Universitari -->
-            <div class="row mb-5">
-                <h2 class="text-center mb-5">I Miei Progetti Universitari</h2>
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="card project-card h-100">
-                            <img src="img/server.jpg" class="card-img-top" alt="Progetto 1">
-                            <div class="card-body">
-                                <h5 class="card-title">IUM-TWEB</h5>
-                                <p class="card-text">Progetto di sviluppo di server e analisi dati</p>
-                                <p class="card-text">Commissionato per un esame</p>
-                                <div class="d-flex gap-2">
-                                    <span class="badge bg-primary">HTML</span>
-                                    <span class="badge bg-primary">CSS</span>
-                                    <span class="badge bg-primary">JavaScript</span>
-                                    <span class="badge bg-primary">Python</span>
+            <div class="project-category">
+                <h3 class="category-title">Progetti Universitari</h3>
+
+                <div class="slider-wrapper">
+                    <div class="project-slider" id="university-slider">
+                        <div class="slider-container">
+                            <div class="slider-track">
+
+                                <!-- Progetto Universitario 1 -->
+                                <div class="project-card-container">
+                                    <div class="project-card">
+                                        <div class="project-image">
+                                            <img src="img/server.jpg" alt="Progetto di algoritmi">
+                                        </div>
+                                        <div class="project-content">
+                                            <h3>Sistema di Gestione Database</h3>
+                                            <p>Implementazione di un DBMS relazionale in Java con supporto per query SQL e ottimizzazione delle prestazioni. Progetto del corso di Basi di Dati.</p>
+                                            <div class="project-badges">
+                                                <span class="badge">Java</span>
+                                                <span class="badge">SQL</span>
+                                                <span class="badge">JDBC</span>
+                                            </div>
+                                            <div class="project-button">
+                                                <a href="https://github.com/tuoprogetto" target="_blank">Visita il progetto</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="card-footer bg-transparent">
-                                <a href="#" class="btn btn-outline-primary">Vedi Progetto</a>
+
+
+                                <!-- Progetto Universitario 2 -->
+                                <div class="project-card-container">
+                                    <div class="project-card">
+                                        <div class="project-image">
+                                            <img src="/api/placeholder/400/320" alt="Progetto web">
+                                        </div>
+                                        <div class="project-content">
+                                            <h3>Applicazione Web per Prenotazioni</h3>
+                                            <p>Piattaforma web per la gestione delle prenotazioni di aule e laboratori universitari con autenticazione e notifiche in tempo reale.</p>
+                                            <div class="project-badges">
+                                                <span class="badge">HTML/CSS</span>
+                                                <span class="badge">JavaScript</span>
+                                                <span class="badge">PHP</span>
+                                                <span class="badge">MySQL</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Progetto Universitario 3 -->
+                                <div class="project-card-container">
+                                    <div class="project-card">
+                                        <div class="project-image">
+                                            <img src="img/server.jpg" alt="Progetto di algoritmi">
+                                        </div>
+                                        <div class="project-content">
+                                            <h3>Sistema di Gestione Database</h3>
+                                            <p>Implementazione di un DBMS relazionale in Java con supporto per query SQL e ottimizzazione delle prestazioni. Progetto del corso di Basi di Dati.</p>
+                                            <div class="project-badges">
+                                                <span class="badge">Java</span>
+                                                <span class="badge">SQL</span>
+                                                <span class="badge">JDBC</span>
+                                            </div>
+                                            <div class="project-button">
+                                                <a href="https://github.com/tuoprogetto" target="_blank">Visita il progetto</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Progetto Universitario 4 -->
+                                <div class="project-card-container">
+                                    <div class="project-card">
+                                        <div class="project-image">
+                                            <img src="/api/placeholder/400/320" alt="Progetto reti">
+                                        </div>
+                                        <div class="project-content">
+                                            <h3>Simulazione di Rete</h3>
+                                            <p>Simulazione di una rete di computer con implementazione di protocolli di routing e analisi delle prestazioni in diverse condizioni di carico.</p>
+                                            <div class="project-badges">
+                                                <span class="badge">C++</span>
+                                                <span class="badge">Protocolli di Rete</span>
+                                                <span class="badge">Simulazione</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Progetto Universitario 5 -->
+                                <div class="project-card-container">
+                                    <div class="project-card">
+                                        <div class="project-image">
+                                            <img src="img/server.jpg" alt="Progetto di algoritmi">
+                                        </div>
+                                        <div class="project-content">
+                                            <h3>Sistema di Gestione Database</h3>
+                                            <p>Implementazione di un DBMS relazionale in Java con supporto per query SQL e ottimizzazione delle prestazioni. Progetto del corso di Basi di Dati.</p>
+                                            <div class="project-badges">
+                                                <span class="badge">Java</span>
+                                                <span class="badge">SQL</span>
+                                                <span class="badge">JDBC</span>
+                                            </div>
+                                            <div class="project-button">
+                                                <a href="https://github.com/tuoprogetto" target="_blank">Visita il progetto</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
+
+                        <!-- Indicatori -->
+                        <div class="slider-dots" id="uni-dots"></div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card project-card h-100">
-                            <img src="/api/placeholder/400/300" class="card-img-top" alt="Progetto 2">
-                            <div class="card-body">
-                                <h5 class="card-title">Progetto 2</h5>
-                                <p class="card-text">Descrizione del progetto e tecnologie utilizzate.</p>
-                                <div class="d-flex gap-2">
-                                    <span class="badge bg-primary">React</span>
-                                    <span class="badge bg-primary">Node.js</span>
-                                    <span class="badge bg-primary">MongoDB</span>
-                                </div>
-                            </div>
-                            <div class="card-footer bg-transparent">
-                                <a href="#" class="btn btn-outline-primary">Vedi Progetto</a>
-                            </div>
-                        </div>
+
+                    <!-- Controlli slider -->
+                    <div class="slider-nav slider-prev" id="uni-prev">
+                        <i class="fas fa-chevron-left"></i>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card project-card h-100">
-                            <img src="/api/placeholder/400/300" class="card-img-top" alt="Progetto 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Progetto 3</h5>
-                                <p class="card-text">Descrizione del progetto e tecnologie utilizzate.</p>
-                                <div class="d-flex gap-2">
-                                    <span class="badge bg-primary">Vue.js</span>
-                                    <span class="badge bg-primary">Firebase</span>
-                                    <span class="badge bg-primary">Tailwind</span>
-                                </div>
-                            </div>
-                            <div class="card-footer bg-transparent">
-                                <a href="#" class="btn btn-outline-primary">Vedi Progetto</a>
-                            </div>
-                        </div>
+                    <div class="slider-nav slider-next" id="uni-next">
+                        <i class="fas fa-chevron-right"></i>
                     </div>
                 </div>
             </div>
 
             <!-- Progetti Personali -->
-            <div class="row mt-5">
-                <h2 class="text-center mb-5">I Miei Progetti Personali</h2>
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="card project-card h-100">
-                            <img src="/api/placeholder/400/300" class="card-img-top" alt="Progetto Personale 1">
-                            <div class="card-body">
-                                <h5 class="card-title">Progetto Personale 1</h5>
-                                <p class="card-text">Descrizione del progetto personale e tecnologie utilizzate.</p>
-                                <div class="d-flex gap-2">
-                                    <span class="badge bg-success">HTML</span>
-                                    <span class="badge bg-success">CSS</span>
-                                    <span class="badge bg-success">JavaScript</span>
+            <div class="project-category">
+                <h3 class="category-title">Progetti Personali</h3>
+
+                <div class="slider-wrapper">
+                    <div class="project-slider" id="personal-slider">
+                        <div class="slider-container">
+                            <div class="slider-track">
+
+                                <!-- Progetto Personale 1 -->
+                                <div class="project-card-container">
+                                    <div class="project-card">
+                                        <div class="project-image">
+                                            <img src="/api/placeholder/400/320" alt="Videogioco">
+                                        </div>
+                                        <div class="project-content">
+                                            <h3>Videogioco 2D Platform</h3>
+                                            <p>Sviluppo di un videogioco platform in stile retrò con fisica realistica, sistema di livelli e modalità multiplayer locale.</p>
+                                            <div class="project-badges">
+                                                <span class="badge">Unity</span>
+                                                <span class="badge">C#</span>
+                                                <span class="badge">Game Design</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="card-footer bg-transparent">
-                                <a href="#" class="btn btn-outline-success">Vedi Progetto</a>
+
+                                <!-- Progetto Personale 2 -->
+                                <div class="project-card-container">
+                                    <div class="project-card">
+                                        <div class="project-image">
+                                            <img src="/api/placeholder/400/320" alt="Bot Telegram">
+                                        </div>
+                                        <div class="project-content">
+                                            <h3>Bot Telegram per Appunti</h3>
+                                            <p>Bot Telegram che aiuta a organizzare e condividere appunti universitari, con funzionalità di ricerca e categorizzazione automatica.</p>
+                                            <div class="project-badges">
+                                                <span class="badge">Python</span>
+                                                <span class="badge">Telegram API</span>
+                                                <span class="badge">NLP</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Progetto Personale 3 -->
+                                <div class="project-card-container">
+                                    <div class="project-card">
+                                        <div class="project-image">
+                                            <img src="/api/placeholder/400/320" alt="Dashboard">
+                                        </div>
+                                        <div class="project-content">
+                                            <h3>Dashboard Personale</h3>
+                                            <p>Dashboard interattiva per monitorare abitudini quotidiane, obiettivi personali e attività, con visualizzazioni grafiche e statistiche.</p>
+                                            <div class="project-badges">
+                                                <span class="badge">React</span>
+                                                <span class="badge">Node.js</span>
+                                                <span class="badge">Chart.js</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Progetto Personale 4 -->
+                                <div class="project-card-container">
+                                    <div class="project-card">
+                                        <div class="project-image">
+                                            <img src="/api/placeholder/400/320" alt="Estensione">
+                                        </div>
+                                        <div class="project-content">
+                                            <h3>Estensione per Browser</h3>
+                                            <p>Estensione per Chrome che blocca le distrazioni durante le sessioni di studio, con timer personalizzabile e statistiche di produttività.</p>
+                                            <div class="project-badges">
+                                                <span class="badge">JavaScript</span>
+                                                <span class="badge">Chrome API</span>
+                                                <span class="badge">CSS</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Progetto Personale 5 -->
+                                <div class="project-card-container">
+                                    <div class="project-card">
+                                        <div class="project-image">
+                                            <img src="/api/placeholder/400/320" alt="Blog">
+                                        </div>
+                                        <div class="project-content">
+                                            <h3>Blog Tecnico</h3>
+                                            <p>Blog personale dedicato alla programmazione e all'informatica, con tutorial, guide e riflessioni sulle nuove tecnologie.</p>
+                                            <div class="project-badges">
+                                                <span class="badge">WordPress</span>
+                                                <span class="badge">PHP</span>
+                                                <span class="badge">SEO</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
+
+                        <!-- Indicatori -->
+                        <div class="slider-dots" id="personal-dots"></div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card project-card h-100">
-                            <img src="/api/placeholder/400/300" class="card-img-top" alt="Progetto Personale 2">
-                            <div class="card-body">
-                                <h5 class="card-title">Progetto Personale 2</h5>
-                                <p class="card-text">Descrizione del progetto personale e tecnologie utilizzate.</p>
-                                <div class="d-flex gap-2">
-                                    <span class="badge bg-success">React</span>
-                                    <span class="badge bg-success">Express</span>
-                                    <span class="badge bg-success">PostgreSQL</span>
-                                </div>
-                            </div>
-                            <div class="card-footer bg-transparent">
-                                <a href="#" class="btn btn-outline-success">Vedi Progetto</a>
-                            </div>
-                        </div>
+
+                    <!-- Controlli slider -->
+                    <div class="slider-nav slider-prev" id="personal-prev">
+                        <i class="fas fa-chevron-left"></i>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card project-card h-100">
-                            <img src="/api/placeholder/400/300" class="card-img-top" alt="Progetto Personale 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Progetto Personale 3</h5>
-                                <p class="card-text">Descrizione del progetto personale e tecnologie utilizzate.</p>
-                                <div class="d-flex gap-2">
-                                    <span class="badge bg-success">Angular</span>
-                                    <span class="badge bg-success">TypeScript</span>
-                                    <span class="badge bg-success">AWS</span>
-                                </div>
-                            </div>
-                            <div class="card-footer bg-transparent">
-                                <a href="#" class="btn btn-outline-success">Vedi Progetto</a>
-                            </div>
-                        </div>
+                    <div class="slider-nav slider-next" id="personal-next">
+                        <i class="fas fa-chevron-right"></i>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
