@@ -85,14 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Funzione per calcolare la larghezza dello slide e slides visibili
         function calcSlideWidth() {
-            const sliderContainer = slider.querySelector('.slider-container');
-            const sliderWidth = sliderContainer.offsetWidth;
-            
-            // Ottieni il padding laterale dal CSS
-            const containerStyle = window.getComputedStyle(sliderContainer);
-            const paddingLeft = parseFloat(containerStyle.paddingLeft);
-            const paddingRight = parseFloat(containerStyle.paddingRight);
-            const totalPadding = paddingLeft + paddingRight;
+            const sliderWidth = slider.querySelector('.slider-container').offsetWidth;
 
             // Responsive
             if (window.innerWidth < 768) {
@@ -106,11 +99,10 @@ document.addEventListener('DOMContentLoaded', function() {
             // Assicuriamoci di non mostrare più slide di quante ne esistono
             slidesToShow = Math.min(slidesToShow, slides.length);
 
-            // Calcola la larghezza delle slide considerando il gap e il padding
-            // Sottrai il valore totale dei gap e del padding per ottenere lo spazio effettivo per le card
+            // Calcola la larghezza delle slide considerando il gap
+            // Sottrai il valore totale dei gap per ottenere lo spazio effettivo per le card
             const totalGapWidth = (slidesToShow - 1) * slideGap;
-            const availableWidth = sliderWidth - totalGapWidth - totalPadding;
-            slideWidth = availableWidth / slidesToShow;
+            slideWidth = (sliderWidth - totalGapWidth) / slidesToShow;
 
             // Imposta larghezza delle slide
             slides.forEach(slide => {
@@ -132,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             currentIndex = index;
 
-            // Calcola la traslazione considerando anche i gap tra le card e il padding
+            // Calcola la traslazione considerando anche i gap tra le card
             const translation = currentIndex * (slideWidth + slideGap);
             track.style.transform = `translateX(-${translation}px)`;
 
