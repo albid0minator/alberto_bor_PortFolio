@@ -260,6 +260,11 @@ html, body {
     margin: 0 10px;
     /* Aggiungiamo padding a destra per mostrare parzialmente la card successiva */
     padding-right: 60px;
+    /* Aggiungiamo padding in basso per permettere all'ombra di essere visibile */
+    padding-bottom: 20px;
+    /* Aggiungiamo padding ai lati per permettere all'ombra di essere visibile */
+    padding-left: 30px;
+    padding-right: 100px; /* Aumentiamo il padding a destra per compensare */
 }
 
 /* Rimuoviamo l'effetto sfumato sul lato destro */
@@ -285,6 +290,11 @@ html, body {
     transition: transform 0.4s ease-in-out;
     gap: 20px;
     padding: 10px 0;
+    /* Aggiungiamo padding per permettere all'ombra di essere visibile */
+    padding-bottom: 20px;
+    /* Aggiungiamo padding ai lati per permettere all'ombra di essere visibile */
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .project-card-container {
@@ -293,6 +303,8 @@ html, body {
     border-radius: 20px; /* Bordi smussati */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Stacco con ombra */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    /* Aggiungiamo un bordo sottile per migliorare l'aspetto */
+    border: 2px solid rgba(78, 99, 218, 0.1);
 }
 
 .project-card {
@@ -452,7 +464,8 @@ html, body {
     }
 
     .slider-container {
-        padding-right: 40px; /* Riduciamo il padding a destra per schermi più piccoli */
+        padding-right: 80px; /* Riduciamo il padding a destra per schermi più piccoli */
+        padding-left: 20px; /* Riduciamo il padding a sinistra per schermi più piccoli */
     }
 
     .slider-container::before {
@@ -479,7 +492,8 @@ html, body {
     }
 
     .slider-container {
-        padding-right: 30px; /* Riduciamo ulteriormente il padding a destra */
+        padding-right: 70px; /* Riduciamo ulteriormente il padding a destra */
+        padding-left: 15px; /* Riduciamo ulteriormente il padding a sinistra */
     }
 
     .slider-container::before {
